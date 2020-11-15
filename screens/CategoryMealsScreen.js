@@ -12,7 +12,19 @@ export default function CategoryMealsScreen({ navigation }) {
   );
 
   const displayItem = (itemData) => {
-    return <MealItem {...itemData.item} onSelectedItem={() => {}} />;
+    return (
+      <MealItem
+        {...itemData.item}
+        onSelectedItem={() => {
+          navigation.navigate({
+            routeName: "MealDetail",
+            params: {
+              mealId: itemData.item.id,
+            },
+          });
+        }}
+      />
+    );
   };
 
   return (
