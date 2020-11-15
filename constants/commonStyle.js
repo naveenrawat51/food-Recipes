@@ -1,10 +1,9 @@
 import Colors from "./Colors";
+import { Platform } from "react-native";
 
-export default {
+export const headerStyle = {
   headerStyle: {
-    headerStyle: {
-      backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
-    },
-    headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
+    backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
   },
+  headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
 };

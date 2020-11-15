@@ -5,10 +5,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Platform,
 } from "react-native";
-import Colors from "../constants/Colors";
-import CommonStyle from "../constants/commonStyle";
 
 import { CATEGORIES } from "../data/dummy-data";
 
@@ -40,11 +37,6 @@ export default function CategoriesScreen(props) {
     />
   );
 }
-
-CategoriesScreen.navigationOptions = {
-  headerTitle: "Meal Categories",
-  ...CommonStyle.headerStyle,
-};
 
 const styles = StyleSheet.create({
   gridItem: {

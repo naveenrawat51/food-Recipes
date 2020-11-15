@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Button, Text } from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
-import CommonStyle from "../constants/commonStyle";
 
 export default function CategoryMealsScreen({ navigation }) {
   const catId = navigation.getParam("categoryId");
@@ -27,7 +26,6 @@ CategoryMealsScreen.navigationOptions = ({ navigation }) => {
 
   return {
     headerTitle: selectedCategory.title,
-    ...CommonStyle.headerStyle,
   };
 };
 
