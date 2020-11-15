@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from "react-native";
 export default function MealDetailScreen() {
   return (
     <View>
-      <Tex>Meal Detail Screen</Tex>
+      <Text>Meal Detail Screen</Text>
     </View>
   );
 }
