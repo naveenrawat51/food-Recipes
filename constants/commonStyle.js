@@ -7,3 +7,5 @@ export const headerStyle = {
   },
   headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
 };
+
+export const bottomHeaderStyle = {};
