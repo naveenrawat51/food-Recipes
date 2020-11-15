@@ -1,10 +1,14 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Button, Text } from "react-native";
 
-export default function CategoryMealsScreen() {
+export default function CategoryMealsScreen({ navigation }) {
   return (
     <View>
-      <Tex>Category Meals Screen</Tex>
+      <Text>Category Meals Screen</Text>
+      <Button
+        title="Go to details page"
+        onPress={() => navigation.navigate({ routeName: "MealDetail" })}
+      />
     </View>
   );
 }
