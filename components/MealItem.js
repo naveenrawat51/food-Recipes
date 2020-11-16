@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import DefaultText from "./DefaultText";
+
 export default function MealItem({
   title,
   onSelectedItem,
@@ -27,9 +29,9 @@ export default function MealItem({
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <Text>{duration}m</Text>
-            <Text>{affordability.toUpperCase()}</Text>
-            <Text>{complexity.toUpperCase()}</Text>
+            <DefaultText>{duration}m</DefaultText>
+            <DefaultText>{affordability.toUpperCase()}</DefaultText>
+            <DefaultText>{complexity.toUpperCase()}</DefaultText>
           </View>
         </View>
       </TouchableOpacity>
