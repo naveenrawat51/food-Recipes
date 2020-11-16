@@ -3,6 +3,8 @@ import { StyleSheet, FlatList } from "react-native";
 
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import CustomHeaderButton from "../components/CustomHeaderButton";
 
 export default function CategoriesScreen(props) {
   const renderGridItem = (itemData) => (
@@ -27,5 +29,21 @@ export default function CategoriesScreen(props) {
     />
   );
 }
+
+CategoriesScreen.navigationOptions = (navData) => {
+  return {
+    headerLeft: () => {
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+          <Item
+            title="Favorite"
+            iconName="ios-menu"
+            onPress={() => navData.navigation.toggleDrawer()}
+          />
+        </HeaderButtons>
+      );
+    },
+  };
+};
 
 const styles = StyleSheet.create({});
