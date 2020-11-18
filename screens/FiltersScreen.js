@@ -28,7 +28,6 @@ export default function FiltersScreen({ navigation }) {
       vegan: isVegan,
       vegetarian: isVegetarian,
     };
-    console.log(appliedFilters);
   }, [isGluteFree, isVegetarian, isVegan]);
 
   useEffect(() => {
