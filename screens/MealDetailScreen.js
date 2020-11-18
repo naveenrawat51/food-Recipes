@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import {
   StyleSheet,
   View,
@@ -8,7 +8,8 @@ import {
   ImageBackground,
 } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import { MEALS } from "../data/dummy-data";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleFavorite } from "../store/actions/meals";
 import CustomHeaderButton from "../components/CustomHeaderButton";
 import DefaultText from "../components/DefaultText";
 
@@ -22,8 +23,18 @@ const ListItem = ({ children }) => {
 
 export default function MealDetailScreen({ navigation }) {
   const mealId = navigation.getParam("mealId");
+  const availableMeals = useSelector((state) => state.meals.meals);
+  const dispatch = useDispatch();
+  const selectedMeal = availableMeals.find((meal) => meal.id === mealId);
 
-  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+  useEffect(() => {
+    navigation.setParams({ mealTitle: selectedMeal.title });
+    navigation.setParams({ toggleFav: toggleFavoriteHandler });
+  }, [dispatch]);
+
+  const toggleFavoriteHandler = useCallback(() => {
+    dispatch(toggleFavorite(mealId));
+  });
 
   return (
     <ScrollView>
@@ -55,18 +66,19 @@ export default function MealDetailScreen({ navigation }) {
 }
 
 MealDetailScreen.navigationOptions = (navigationData) => {
-  const mealId = navigationData.navigation.getParam("mealId");
-  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+  const mealTitle = navigationData.navigation.getParam("mealTitle");
+  toggleFav;
+  const toggleFav = navigationData.navigation.getParam("toggleFav");
 
   return {
-    headerTitle: selectedMeal.title,
+    headerTitle: mealTitle,
     headerRight: () => {
       return (
         <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
           <Item
             title="Favorite"
             iconName="ios-star-outline"
-            onPress={() => console.log("naveen")}
+            onPress={toggleFav}
           />
         </HeaderButtons>
       );
