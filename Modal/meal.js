@@ -26,6 +26,6 @@ export default class Meal {
       (this.isGlutenFree = isGlutenFree),
       (this.isVegan = isVegan),
       (this.isVegetarian = isVegetarian),
-      (this.isVegetarian = isLactoseFree);
+      (this.isLactoseFree = isLactoseFree);
   }
 }
